@@ -1,0 +1,36 @@
+.outerDiv {
+	background-color: #6E6EA0;
+	border: solid 1px #00FFFF;
+	height: 170px;
+	position: relative;
+}
+
+.middleTable {
+	width: 100px;
+	border: dotted 2px #ccc;
+	height: 150px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	text-align: center;
+}
+
+.middleTd {
+	border: solid 1px #39A053;
+	background-color: #bbb;
+}
+
+#innerBtn {
+	border-radius: 5px;
+	height: 38px;
+	border: solid 1px #1B8A6A;
+	color: #FF0000;
+}
+
+#dld {
+	position: absolute;
+	top: 45px;
+	right: 45px;
+}
