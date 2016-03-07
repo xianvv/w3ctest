@@ -1,0 +1,25 @@
+.div {
+    border: solid 1px #000;
+}
+
+.outer {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-color: blue;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.inner {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

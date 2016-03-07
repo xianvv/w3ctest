@@ -1,0 +1,28 @@
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	text-align: center;
+	background-color: burlywood;
+	display: flex;
+}
+
+li {
+	float: left;
+	flex: 1;
+	margin: auto;
+	padding: 12px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	background-color: burlywood;
+	border-right: solid 1px #EED5B4;
+}
+
+li:hover {
+	background-color: #EED5B4;
+	color: #FFFFFF;
+}
