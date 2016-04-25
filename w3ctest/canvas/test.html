@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+		<link rel="stylesheet" type="text/css" href="test.css" />
+	</head>
+
+	<body>
+		<div class="toolbar">
+			<input type="color" id="colorInput" />
+			<input type="button" onclick="custom('point')" value="点" />
+			<input type="button" onclick="custom('line')" value="线" />
+			<input type="button" onclick="custom('pointToLine')" value="连线" />
+			<input type="button" onclick="custom('free')" value="自由" />
+			<input type="button" onclick="custom('rect')" value="矩形" />
+			<input type="button" onclick="custom('circle')" value="圆形" />
+			<input type="button" onclick="drawPic()" value="拖放图片" />
+			<input type="button" onclick="custom('eraser')" value="橡皮" />
+			<input type="button" onclick="clearAll()" value="打扫" />
+			<input type="button" onclick="save()" value="保存" />
+		</div>
+		<div id="container">
+			<div id="cvContainer"></div>
+		</div>
+		<ul>
+			<li id="Vibrant">强</li>
+			<li id="Muted">弱</li>
+			<li id="DarkVibrant">很强</li>
+			<li id="DarkMuted">很弱</li>
+			<li id="LightVibrant">不强不弱</li>
+		</ul>
+		<div id="cvContainer2"></div>
+		<script src="../commonJs/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="Vibrant.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="test.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var cv = window.canvas.init("#cvContainer");
+			var cv2 = window.canvas.init("#cvContainer2", {
+				width: 300,
+				height: 300
+			});
+			var cinput = document.getElementById("colorInput");
+			cinput.addEventListener("change", function(e) {
+				if (cv) {
+					cv.setAttr({
+						strokeColor: e.target.value
+					});
+				}
+			});
+
+			function custom(type) {
+				var color = cinput.value;
+				var opt = {
+					strokeColor: color,
+					shadowBlur: 5,
+					shadowColor: "green"
+				};
+				if (type == "eraser") {
+					opt.lineWidth = 10;
+				}
+				cv.beginCustom(type, opt);
+			}
+
+			function clearAll() {
+				cv.clear();
+			}
+
+			function drawPic() {
+				cv.enableDragPic(function(n, v) {
+					if (n == "DarkVibrant") {
+						$("#container").css("background-color", v);
+					}
+					$("#" + n).css("background-color", v);
+				});
+			}
+
+			function save() {
+				var src = cv.toImgSrc();
+				window.location.href = src;
+			}
+		</script>
+	</body>
+
+</html>
