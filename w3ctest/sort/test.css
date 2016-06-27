@@ -1,0 +1,29 @@
+table,
+tr,
+td,
+th {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	width: 50%;
+	margin: auto;
+	left: 0;
+	right: 0;
+	background-color: #10AEFF;
+	color: #AF0707;
+	border-left: solid 1px #000000;
+	border-top: solid 1px #000000;
+}
+
+th,
+td {
+	border-right: solid 1px #039702;
+	border-bottom: solid 1px #039702;
+}
+
+tr {
+	line-height: 40px;
+	height: 40px;
+}

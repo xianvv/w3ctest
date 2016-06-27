@@ -1,0 +1,27 @@
+.pictureContainer {
+	background: null;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	text-align: center;
+	height: 100%;
+}
+.pictureContainerParent {
+	overflow: hidden;
+}
+.pictureElement {
+	position: absolute;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #FFFFFF;
+	background-size: 100% 100%;
+	overflow: hidden;
+    -webkit-transition:0.3s all ease;
+}
+.titleSpan{
+    position: absolute;
+    top: 0px;
+    color: #FFF;
+    width: 100%;
+    left: 0;
+    font-weight: bolder;
+    text-shadow: 0 0 5px #000;
+}

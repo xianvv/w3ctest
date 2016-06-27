@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>weui</title>
+		<style>
+			.myBtn {
+				padding: 5px;
+				margin: 5px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="weui.css" />
+	</head>
+
+	<body>
+		<h1>weui 演示</h1>
+		<br />
+		<input class="myBtn" type="button" value="confirm" onclick="onconfirm();" />
+		<input class="myBtn" type="button" value="alert" onclick="onalert();" />
+		<input class="myBtn" type="button" value="toast" onclick="ontoast();" />
+		<input class="myBtn" type="button" value="loadingToast" onclick="onLoadingToast();" />
+		<input class="myBtn" type="button" value="msgPage" onclick="onmsgPage();" />
+		<input class="myBtn" type="button" value="actionSheet" onclick="onactionSheet();" />
+
+        <script src="../commonJs/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="weui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function onconfirm() {
+				window.weui.confirm("这是title", "这是内容", function(r) {
+					alert(r);
+				});
+			}
+
+			function onalert() {
+				window.weui.alert("这是title", "这是内容", function() {
+					alert("game over.");
+				});
+			}
+
+			function ontoast() {
+				window.weui.toast("这是内容", function() {
+					alert("这是回调函数。");
+				});
+			}
+
+			function onLoadingToast() {
+				window.weui.loadingToast("show");
+				setTimeout(function() {
+					window.weui.loadingToast("hide");
+				}, 1000);
+			}
+
+			function onmsgPage() {
+				window.weui.msgPage("这是title", "这是内容", function(r) {
+					alert(r);
+				});
+			}
+			window.weui.actionSheet("init", [{
+				code: "save",
+				title: "保存",
+				action: function(e) {
+					alert("成");
+				}
+			}, {
+				code: "delete",
+				title: "删除",
+				action: function(e) {
+					alert("删除");
+				}
+			}]);
+
+			function onactionSheet() {
+				window.weui.actionSheet("show");
+			}
+		</script>
+	</body>
+
+</html>

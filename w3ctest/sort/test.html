@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>排序</title>
+		<link rel="stylesheet" type="text/css" href="test.css" />
+	</head>
+
+	<body>
+		<table id="abTable">
+			<tr>
+				<th>姓名</th>
+				<th>地址</th>
+				<th>手机</th>
+			</tr>
+			<tr>
+				<td>方式的</td>
+				<td>b</td>
+				<td>嘎嘎嘎</td>
+			</tr>
+			<tr>
+				<td>g</td>
+				<td>ww</td>
+				<td>23234</td>
+			</tr>
+			<tr>
+				<td>aaf</td>
+				<td>是的发生</td>
+				<td>办不办</td>
+			</tr>
+		</table>
+		<script type="text/javascript" src="../commonJs/jquery-1.11.0.js"></script>
+		<script>
+			var ths = document.getElementsByTagName("th");
+			var table = $("#abTable");
+
+			function findParent(el, rightExp) {
+				if (typeof rightExp != "function") {
+					return el;
+				}
+				var p = el.parentNode;
+				if (rightExp(p) || p.tagName == "HTML") {
+					return p;
+				}
+				return arguments.callee(p, rightExp);
+			}
+
+			function sortBy(e) {
+				var target = e.target;
+				var cellIndex = target.cellIndex;
+				var trsTmp = $("tr", table);
+				var trs = [];
+				for (var i = 0, tr; tr = trsTmp[i++];) {
+					trs.push(tr);
+				}
+				trs.shift();
+				trs.sort(function(e1, e2) {
+					return e1.children[cellIndex].innerHTML > e2.children[cellIndex].innerHTML ? 1 : -1;
+				});
+				$(trs).remove();
+				table.append(trs);
+			}
+			
+			for (var i = 0, th; th = ths[i++];) {
+				th.addEventListener("click", sortBy);
+			}
+		</script>
+	</body>
+
+</html>
